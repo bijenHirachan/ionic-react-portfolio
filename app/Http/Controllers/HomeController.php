@@ -37,7 +37,8 @@ class HomeController extends Controller
     public function projectDetails(Project $project)
     {
         return Inertia::render('Home/ProjectDetails', [
-            'project' => $project
+            'project' => $project,
+            'categories' => $project->categories
         ]);
     }
 

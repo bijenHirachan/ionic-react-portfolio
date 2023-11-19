@@ -79,11 +79,11 @@ const Home = () => {
         gsap.fromTo(
             jsRef.current,
             {
-                x: -100,
+                x: -400,
             },
             {
-                x: 100,
-                duration: 8,
+                x: 400,
+                duration: 9,
                 repeat: -1,
                 yoyo: true,
             }
@@ -93,22 +93,24 @@ const Home = () => {
     return (
         <Welcome>
             <div className="h-full flex flex-col gap-6 justify-between items-center z-10">
-                <div className="absolute bottom-[10vh] w-[200vh] opacity-20 font-abeeze">
+                <div className="absolute bottom-[0svh] w-[200svh] opacity-20 font-abeeze">
                     <div
                         ref={jsRef}
-                        className="flex font-semibold h-full w-full items-center justify-between"
+                        className="flex font-semibold h-full w-full flex-wrap items-center justify-around"
                     >
                         <div className="text-mylight">PHP</div>
                         <div className="text-mylight">Laravel</div>
                         <div className="text-mylight">Javascript</div>
                         <div className="text-mylight">ReactJs</div>
-                        <div className="text-mylight">HTML5</div>
+                        <div className="text-mylight">NodeJs</div>
                         <div className="text-mylight">CSS3</div>
                         <div className="text-mylight">TailwindCSS</div>
                         <div className="text-mylight">MySQL</div>
                         <div className="text-mylight">MongoDB</div>
+                        <div className="text-mylight">HTML5</div>
                     </div>
                 </div>
+
                 <div className="h-full w-full flex flex-col justify-center items-center relative z-10">
                     <Canvas>
                         <OrbitControls enableZoom={false} />
@@ -139,7 +141,7 @@ const Home = () => {
                         </p>
                     </div>
 
-                    <div className="absolute bottom-0 right-0 flex flex-col items-end">
+                    <div className="absolute bottom-8 right-4 flex flex-col items-end">
                         <div
                             ref={quoteRef}
                             className="shadow-md text-sm opacity-0 bg-mygreen rounded-md mb-4 text-mylight grid grid-cols-12"
@@ -165,9 +167,6 @@ const Home = () => {
                             </div>
                         </div>
 
-                        {/* <p className="text-mylight font-semibold text-sm mb-2">
-                            Want to read a quote?
-                        </p> */}
                         <button
                             onClick={fetchQuote}
                             className="text-xs uppercase text-mylight font-semibold px-2 py-1 bg-gradient-to-r from-myblue to-mypink hover:-translate-x-2 transition-all delay-75"

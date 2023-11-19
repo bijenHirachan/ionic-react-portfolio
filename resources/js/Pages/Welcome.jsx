@@ -30,7 +30,7 @@ export default function Welcome({ children }) {
     return (
         <>
             <Head title="Home" />
-            <div className="bg-mydarker h-screen relative">
+            <div className="bg-mydarker h-[100svh] relative">
                 <div className="bg-mydark z-50 w-16 p-4 h-full absolute flex flex-col justify-between items-center">
                     <div onClick={openNav}>
                         <Logo
@@ -81,14 +81,24 @@ export default function Welcome({ children }) {
                         </Link>
                     </div>
                     <div className="flex flex-col gap-4">
-                        <AiOutlineLinkedin
-                            size={26}
-                            className="text-mylight hover:text-mygreen hover:scale-125 cursor-pointer transition-all delay-75"
-                        />
-                        <AiOutlineGithub
-                            size={26}
-                            className="text-mylight hover:text-mygreen hover:scale-125 cursor-pointer transition-all delay-75"
-                        />
+                        <a
+                            target="_blank"
+                            href="https://www.linkedin.com/in/bijen-hirachan/"
+                        >
+                            <AiOutlineLinkedin
+                                size={26}
+                                className="text-mylight hover:text-mygreen hover:scale-125 cursor-pointer transition-all delay-75"
+                            />
+                        </a>
+                        <a
+                            target="_blank"
+                            href="https://github.com/bijenHirachan?tab=repositories"
+                        >
+                            <AiOutlineGithub
+                                size={26}
+                                className="text-mylight hover:text-mygreen hover:scale-125 cursor-pointer transition-all delay-75"
+                            />
+                        </a>
                     </div>
                 </div>
                 <div
@@ -149,20 +159,24 @@ export default function Welcome({ children }) {
                         </Link>
                     </div>
                     <div className="flex flex-col gap-4">
-                        <Link href="/contact">
-                            <h1 className="text-md text-mylight hover:text-mygreen hover:font-semibold hover:scale-110 cursor-pointer transition-all delay-75">
-                                Linked In
-                            </h1>
-                        </Link>
-                        <Link href="/contact">
-                            <h1 className="text-md text-mylight hover:text-mygreen hover:font-semibold hover:scale-110 cursor-pointer transition-all delay-75">
-                                Github
-                            </h1>
-                        </Link>
+                        <a
+                            target="_blank"
+                            href="https://www.linkedin.com/in/bijen-hirachan/"
+                            className="text-md text-mylight hover:text-mygreen hover:font-semibold hover:scale-110 cursor-pointer transition-all delay-75"
+                        >
+                            Linked In
+                        </a>
+                        <a
+                            target="_blank"
+                            href="https://github.com/bijenHirachan?tab=repositories"
+                            className="text-md text-mylight hover:text-mygreen hover:font-semibold hover:scale-110 cursor-pointer transition-all delay-75"
+                        >
+                            Github
+                        </a>
                     </div>
                 </div>
 
-                <div className="font-abeeze ml-16 p-2 sm:p-8 h-full overflow-x-hidden overflow-y-scroll relative">
+                <div className="font-abeeze ml-16  h-full overflow-x-hidden overflow-y-scroll relative">
                     {children}
                 </div>
             </div>
