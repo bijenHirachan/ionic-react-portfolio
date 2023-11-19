@@ -6,7 +6,7 @@ const Product = ({ product, addToCart, cartItems }) => {
             <div className="flex flex-col gap-8 justify-center mt-4 items-center">
                 <img
                     className="h-16 w-auto object-contain"
-                    src={`http://localhost:8000/${product.image_url}.jpg`}
+                    src={`/${product.image_url}.jpg`}
                     alt=""
                 />
                 <div className="flex  flex-col ">
