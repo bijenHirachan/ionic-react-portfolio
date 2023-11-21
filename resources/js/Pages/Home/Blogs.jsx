@@ -6,7 +6,7 @@ const Blogs = ({ blogs }) => {
     return (
         <Welcome>
             <Head title="Blogs" />
-            <div className="p-2">
+            <div className="p-4">
                 <div>
                     <h1 className="text-xl text-mylight font-semibold text-right my-4 px-4">
                         Blogs

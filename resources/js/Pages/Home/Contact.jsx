@@ -1,18 +1,13 @@
-import { useEffect, useRef, useState } from "react";
+import { useState } from "react";
 import Welcome from "../Welcome";
-import { Head, router, useForm, usePage } from "@inertiajs/react";
-import gsap from "gsap";
+import { Head, router } from "@inertiajs/react";
+import toast from "react-hot-toast";
 
-const Contact = () => {
+const Contact = ({ errors }) => {
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [message, setMessage] = useState("");
-    const [showMessage, setShowMessage] = useState(false);
-    const [errors, setErrors] = useState({});
-    const [processing, setProcessing] = useState(false);
-    const [flash, setFlash] = useState({});
-
-    const messageRef = useRef();
+    // const [errors, setErrors] = useState({});
 
     const submitHandler = (e) => {
         e.preventDefault();
@@ -26,26 +21,31 @@ const Contact = () => {
             },
             {
                 onSuccess: (page) => {
-                    setErrors(page.props.errors);
-                    setFlash(page.props.flash);
-                    setShowMessage(true);
                     setName("");
                     setEmail("");
                     setMessage("");
-                    gsap.fromTo(
-                        messageRef?.current,
-                        { opacity: 0 },
-                        { duration: 3, opacity: 1 }
-                    );
-                    gsap.fromTo(
-                        messageRef?.current,
-                        { opacity: 1 },
-                        { duration: 3, opacity: 0, delay: 2 }
-                    );
-                    setTimeout(() => {
-                        setFlash({});
-                        setShowMessage(false);
-                    }, [5000]);
+                    // toast.success(page?.props?.flash?.message);
+                    toast.custom((t) => (
+                        <div
+                            className={`${
+                                t.visible ? "animate-enter" : "animate-leave"
+                            } max-w-md w-full bg-white shadow-lg rounded-lg pointer-events-auto flex ring-1 ring-black ring-opacity-5`}
+                        >
+                            <div className="flex-1 w-0 p-4">
+                                <div className="flex items-center">
+                                    {page?.props?.flash?.message}
+                                </div>
+                            </div>
+                            <div className="flex border-l border-gray-200">
+                                <button
+                                    onClick={() => toast.dismiss(t.id)}
+                                    className="w-full border border-transparent rounded-none rounded-r-lg p-4 flex items-center justify-center text-sm font-medium text-indigo-600 hover:text-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                                >
+                                    Close
+                                </button>
+                            </div>
+                        </div>
+                    ));
                 },
             }
         );
@@ -56,27 +56,17 @@ const Contact = () => {
             <Head title="Contact" />
             <div className="p-4">
                 <div>
-                    <h1 className="text-xl  text-mylight font-semibold text-right my-4">
+                    <h1 className="text-xl text-mylight font-semibold text-right my-4 px-4">
                         Contact
                     </h1>
                 </div>
-                <div className="flex z-10 flex-col h-[80svh] items-center justify-center relative">
-                    <div ref={messageRef}>
-                        {showMessage && (
-                            <div
-                                className={`bg-indigo-500 px-4 py-2 w-full  mb-4 rounded-md text-indigo-50`}
-                            >
-                                {flash?.message}
-                            </div>
-                        )}
-                    </div>
-
+                <div className="flex z-10  flex-col h-[80svh] items-center justify-center relative">
                     <form
                         onSubmit={submitHandler}
-                        className="flex flex-col gap-2 w-full sm:w-2/5 md:1/5"
+                        className="flex flex-col gap-4 w-full sm:w-2/5 md:1/5 px-4"
                     >
                         <div className="flex flex-col relative">
-                            <label className="text-sm text-mylight after:content-['*'] after:ml-0.5 after:text-red-600">
+                            <label className="text-sm text-mylight after:content-['*'] after:ml-0.5 after:text-mypink">
                                 Name
                             </label>
                             <input
@@ -84,16 +74,16 @@ const Contact = () => {
                                 onChange={(e) => setName(e.target.value)}
                                 className="border-none rounded focus:ring-0"
                                 type="text"
-                                required
+                                // required
                             />
                             {errors.name && (
-                                <div className="absolute bottom-[-18px] right-0 text-xs text-red-600">
+                                <div className="absolute bottom-[-18px] right-0 text-xs text-mypink">
                                     {errors.name}
                                 </div>
                             )}
                         </div>
                         <div className="flex flex-col relative">
-                            <label className="text-sm text-mylight after:content-['*'] after:ml-0.5 after:text-red-600">
+                            <label className="text-sm text-mylight after:content-['*'] after:ml-0.5 after:text-mypink">
                                 Email
                             </label>
                             <input
@@ -101,32 +91,31 @@ const Contact = () => {
                                 onChange={(e) => setEmail(e.target.value)}
                                 className="border-none rounded focus:ring-0"
                                 type="email"
-                                required
+                                // required
                             />
                             {errors.email && (
-                                <div className="absolute bottom-[-18px] right-0 text-xs text-red-600">
+                                <div className="absolute bottom-[-18px] right-0 text-xs text-mypink">
                                     {errors.email}
                                 </div>
                             )}
                         </div>
                         <div className="flex flex-col relative">
-                            <label className="text-sm text-mylight after:content-['*'] after:ml-0.5 after:text-red-600">
+                            <label className="text-sm text-mylight after:content-['*'] after:ml-0.5 after:text-mypink">
                                 Message
                             </label>
                             <textarea
                                 value={message}
                                 onChange={(e) => setMessage(e.target.value)}
                                 className="border-none rounded focus:ring-0"
-                                required
+                                // required
                             ></textarea>
                             {errors.message && (
-                                <div className="absolute bottom-[-18px] right-0 text-xs text-red-600">
+                                <div className="absolute bottom-[-18px] right-0 text-xs text-mypink">
                                     {errors.message}
                                 </div>
                             )}
                         </div>
                         <button
-                            disabled={processing}
                             type="submit"
                             className="bg-gradient-to-r from-myblue to-mypink py-2 mt-4 text-mylight font-semibold uppercase hover:translate-y-1 duration-700 transition-all delay-200"
                         >

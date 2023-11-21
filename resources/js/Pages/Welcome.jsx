@@ -13,6 +13,7 @@ import {
     AiOutlineContacts,
     AiOutlineArrowLeft,
 } from "react-icons/ai";
+import { Toaster } from "react-hot-toast";
 
 export default function Welcome({ children }) {
     const navRef = useRef();
@@ -30,8 +31,8 @@ export default function Welcome({ children }) {
     return (
         <>
             <Head title="Home" />
-            <div className="bg-mydarker h-[100svh] relative">
-                <div className="bg-mydark z-50 w-16 p-4 h-full absolute flex flex-col justify-between items-center">
+            <div className="bg-mydarkest h-[100svh] relative">
+                <div className="bg-mydarkest shadow-lg z-50 w-16 p-4 h-full absolute flex flex-col justify-between items-center">
                     <div onClick={openNav}>
                         <Logo
                             classes={
@@ -103,7 +104,7 @@ export default function Welcome({ children }) {
                 </div>
                 <div
                     ref={navRef}
-                    className="bg-mylightdark left-[-100px] z-40 w-40 p-4 h-full absolute flex flex-col justify-between items-center"
+                    className="bg-mydark left-[-100px] z-40 w-40 p-4 h-full absolute flex flex-col justify-between items-center"
                 >
                     <div className="flex justify-end w-full">
                         <AiOutlineArrowLeft
@@ -175,7 +176,7 @@ export default function Welcome({ children }) {
                         </a>
                     </div>
                 </div>
-
+                <Toaster />
                 <div className="font-abeeze ml-16  h-full overflow-x-hidden overflow-y-scroll relative">
                     {children}
                 </div>

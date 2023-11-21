@@ -17,6 +17,7 @@ export default {
                 abeeze: ["ABeeZee", ...defaultTheme.fontFamily.sans],
             },
             colors: {
+                mydarkest: "#171717",
                 mydarker: "#333333",
                 mydark: "#232323",
                 mylightdark: "#2b2a2a",
