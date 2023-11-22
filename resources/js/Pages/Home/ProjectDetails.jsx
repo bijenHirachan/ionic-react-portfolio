@@ -8,8 +8,8 @@ const ProjectDetails = ({ project, categories }) => {
         <Welcome>
             <Head title={project.title} />
 
-            <div className="flex justify-center items-center pt-6 px-2">
-                <div className="grid grid-cols-12 h-[90svh]  gap-4 bg-mylight rounded-md p-6 2xl:w-4/5">
+            <div className="pt-6 px-2 2xl:flex 2xl:justify-center 2xl:mt-4">
+                <div className="grid grid-cols-12 h-[90svh]  gap-4 bg-mydark rounded-md p-6 2xl:w-4/5">
                     <div className="col-span-12 md:col-span-5 flex flex-col justify-start gap-4 items-center pt-12">
                         {project.image_url ? (
                             <img
@@ -27,7 +27,7 @@ const ProjectDetails = ({ project, categories }) => {
                         <div className="flex flex-wrap gap-2">
                             {categories.map((cat) => (
                                 <span
-                                    className="border border-mydarker text-xs uppercase px-2 py-1 rounded"
+                                    className="border border-mylight text-xs uppercase px-2 py-1 rounded text-mylight"
                                     key={cat.id}
                                 >
                                     {cat.title}
@@ -37,11 +37,13 @@ const ProjectDetails = ({ project, categories }) => {
                     </div>
                     <div className="col-span-12 md:col-span-7 overflow-auto">
                         <div>
-                            <h1 className="text-2xl italic text-mydarker font-semibold">
+                            <h1 className="text-2xl italic text-mylight font-semibold">
                                 {project.title}
                             </h1>
                         </div>
-                        <div className="mt-2">{parse(project.description)}</div>
+                        <div className="mt-2 text-mylight">
+                            {parse(project.description)}
+                        </div>
                     </div>
                 </div>
             </div>

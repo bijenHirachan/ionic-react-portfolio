@@ -130,7 +130,7 @@ const Index = ({ auth, blogs }) => {
                                             {blog.image_url && (
                                                 <img
                                                     className="h-6 w-6 object-contain"
-                                                    src={`http://localhost:8000/storage/${blog.image_url}`}
+                                                    src={`/storage/${blog.image_url}`}
                                                 />
                                             )}
                                         </td>

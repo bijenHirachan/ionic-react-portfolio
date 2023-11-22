@@ -127,7 +127,7 @@ const Index = ({ auth, projects }) => {
                                             {project.image_url && (
                                                 <img
                                                     className="h-6 w-6 object-contain"
-                                                    src={`http://localhost:8000/storage/${project.image_url}`}
+                                                    src={`/storage/${project.image_url}`}
                                                 />
                                             )}
                                         </td>

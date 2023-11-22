@@ -21,8 +21,8 @@ const BlogDetails = ({ blog }) => {
         <Welcome>
             <Head title={blog.title} />
 
-            <div className="flex justify-center items-center pt-6 px-2">
-                <div className="grid grid-cols-12 h-[90svh]  gap-4 bg-mylight rounded-md p-6 2xl:w-4/5 relative">
+            <div className="pt-6 px-2 2xl:flex 2xl:justify-center 2xl:mt-4">
+                <div className="grid grid-cols-12 h-[90svh] gap-4 bg-mydark rounded-md p-6 2xl:w-4/5 relative">
                     <div className="absolute bottom-2 left-2 text-xs text-mydarker">
                         {createdAt}
                     </div>
@@ -43,11 +43,13 @@ const BlogDetails = ({ blog }) => {
                     </div>
                     <div className="col-span-12 md:col-span-7 overflow-auto">
                         <div>
-                            <h1 className="text-2xl italic text-mydarker font-semibold">
+                            <h1 className="text-2xl italic text-mylight font-semibold">
                                 {blog.title}
                             </h1>
                         </div>
-                        <div className="mt-2">{parse(blog.description)}</div>
+                        <div className="mt-2 text-mylight">
+                            {parse(blog.description)}
+                        </div>
                     </div>
                 </div>
             </div>

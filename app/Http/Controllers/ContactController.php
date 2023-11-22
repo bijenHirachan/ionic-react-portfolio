@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Contact;
 use App\Http\Requests\StoreContactRequest;
 use App\Http\Requests\UpdateContactRequest;
+use App\Mail\MessageReceived;
+use Illuminate\Support\Facades\Mail;
 use Inertia\Inertia;
 
 class ContactController extends Controller
@@ -31,7 +33,10 @@ class ContactController extends Controller
     {
         $validated = $request->validated();
 
-        Contact::create($validated);
+        $contact = Contact::create($validated);
+
+        Mail::to('bijen.hirachan@gmail.com')
+            ->send(new MessageReceived($contact));
 
         session()->flash('message', 'Your message has been sent successfully!');
     }

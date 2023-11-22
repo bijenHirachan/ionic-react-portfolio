@@ -17,31 +17,31 @@ const Projects = ({ projects }) => {
                     {projects.map((project) => (
                         <div
                             key={project.id}
-                            className="col-span-12 p-4 sm:col-span-6 lg:col-span-4 bg-mylight text-mydark h-48 rounded shadow-md grid grid-cols-12 gap-1 relative"
+                            className="col-span-12 p-4 sm:col-span-6 lg:col-span-4 bg-mydark text-mylight h-40 rounded shadow-md grid grid-cols-12 gap-4 relative"
                         >
-                            <div className="col-span-4 flex justify-center ">
+                            <div className="col-span-4 flex justify-center items-center">
                                 {project.image_url ? (
                                     <img
-                                        className="h-14 object-contain"
+                                        className="h-14 object-contain rounded"
                                         src={`/storage/${project.image_url}`}
                                         alt=""
                                     />
                                 ) : (
                                     <img
-                                        className="h-14 object-contain"
+                                        className="h-14 object-contain rounded"
                                         src={`/images/placeholder.png`}
                                         alt=""
                                     />
                                 )}
                             </div>
-                            <div className="col-span-8 overflow-auto">
+                            <div className="col-span-8 overflow-auto flex flex-col justify-center gap-2">
                                 <Link href={`/projects/${project.slug}`}>
                                     <h1 className="text-md font-semibold leading-5">
                                         {project.title}
                                     </h1>
                                 </Link>
 
-                                <div className="text-xs leading-5 mt-4">
+                                <div className="text-xs leading-5">
                                     {project.excerpt}
                                 </div>
                             </div>
@@ -49,7 +49,7 @@ const Projects = ({ projects }) => {
                                 <a
                                     href={project.demo_link}
                                     target="_blank"
-                                    className="absolute bottom-2 right-2  text-myblue hover:text-mygreen transition-all delay-75 underline text-xs"
+                                    className="absolute bottom-2 right-2  text-mygreen hover:text-mypink transition-all delay-75 underline text-xs"
                                 >
                                     Demo Link
                                 </a>

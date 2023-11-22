@@ -17,31 +17,31 @@ const Blogs = ({ blogs }) => {
                     {blogs.map((blog) => (
                         <div
                             key={blog.id}
-                            className="col-span-12 p-4 sm:col-span-6 lg:col-span-4 bg-mylight text-mydark h-48 rounded shadow-md grid grid-cols-12 gap-1 relative"
+                            className="col-span-12 p-4 sm:col-span-6 lg:col-span-4 bg-mydark text-mylight h-40 rounded shadow-md grid grid-cols-12 gap-4 relative"
                         >
-                            <div className="col-span-4 flex justify-center ">
+                            <div className="col-span-4 flex justify-center items-center">
                                 {blog.image_url ? (
                                     <img
-                                        className="h-14 object-contain"
+                                        className="h-14 object-contain rounded"
                                         src={`/storage/${blog.image_url}`}
                                         alt=""
                                     />
                                 ) : (
                                     <img
-                                        className="h-14 object-contain"
+                                        className="h-14 object-contain rounded"
                                         src={`/images/placeholder.png`}
                                         alt=""
                                     />
                                 )}
                             </div>
-                            <div className="col-span-8 overflow-auto">
+                            <div className="col-span-8 overflow-auto flex flex-col justify-center gap-2">
                                 <Link href={`/blogs/${blog.slug}`}>
                                     <h1 className="text-md font-semibold leading-5">
                                         {blog.title}
                                     </h1>
                                 </Link>
 
-                                <div className="text-xs leading-5 mt-4">
+                                <div className="text-xs leading-5">
                                     {blog.excerpt}
                                 </div>
                             </div>
