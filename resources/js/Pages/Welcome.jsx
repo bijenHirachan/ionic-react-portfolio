@@ -12,7 +12,9 @@ import {
     AiOutlineTable,
     AiOutlineContacts,
     AiOutlineArrowLeft,
+    AiOutlineUser,
 } from "react-icons/ai";
+
 import { Toaster } from "react-hot-toast";
 
 export default function Welcome({ children }) {
@@ -46,6 +48,15 @@ export default function Welcome({ children }) {
                             <AiOutlineHome
                                 className={`text-2xl hover:text-mygreen hover:scale-125 cursor-pointer transition-all delay-75 ${
                                     component === "Home/Home"
+                                        ? "text-mygreen scale-125"
+                                        : "text-mylight "
+                                }`}
+                            />
+                        </Link>
+                        <Link href="/about">
+                            <AiOutlineUser
+                                className={`text-2xl hover:text-mygreen hover:scale-125 cursor-pointer transition-all delay-75 ${
+                                    component === "Home/AboutMe"
                                         ? "text-mygreen scale-125"
                                         : "text-mylight "
                                 }`}
@@ -123,6 +134,17 @@ export default function Welcome({ children }) {
                                 }`}
                             >
                                 Home
+                            </div>
+                        </Link>
+                        <Link href="/about">
+                            <div
+                                className={`text-md hover:text-mygreen font-bold transition-all delay-75 ${
+                                    component === "Home/AboutMe"
+                                        ? "text-mygreen scale-110"
+                                        : "text-mylight cursor-pointer"
+                                }`}
+                            >
+                                About Me
                             </div>
                         </Link>
                         <Link href="/projects">

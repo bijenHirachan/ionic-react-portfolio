@@ -20,6 +20,11 @@ class HomeController extends Controller
         return Inertia::render('Home/Contact');
     }
 
+    public function about()
+    {
+        return Inertia::render('Home/AboutMe');
+    }
+
     public function blogs()
     {
         return Inertia::render('Home/Blogs', [
