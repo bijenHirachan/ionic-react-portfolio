@@ -1,5 +1,5 @@
 import Logo from "@/Components/Logo";
-import { Link, Head, usePage } from "@inertiajs/react";
+import { Link, usePage } from "@inertiajs/react";
 import { useRef } from "react";
 
 import gsap from "gsap";
@@ -32,7 +32,6 @@ export default function Welcome({ children }) {
 
     return (
         <>
-            <Head title="Home" />
             <div className="bg-mydarkest h-[100svh] relative">
                 <div className="bg-mydarkest shadow-lg z-50 w-16 p-4 h-full absolute flex flex-col justify-between items-center">
                     <div onClick={openNav}>

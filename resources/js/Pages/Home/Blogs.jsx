@@ -5,7 +5,13 @@ import { Head, Link } from "@inertiajs/react";
 const Blogs = ({ blogs }) => {
     return (
         <Welcome>
-            <Head title="Blogs" />
+            <Head>
+                <title>Blogs</title>
+                <meta
+                    name="description"
+                    content="Bijen Hirachan's blog content."
+                />
+            </Head>
             <div className="p-4">
                 <div>
                     <h1 className="text-xl text-mylight font-semibold text-right my-4 px-4">

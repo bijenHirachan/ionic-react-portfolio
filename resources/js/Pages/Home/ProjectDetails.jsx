@@ -6,10 +6,16 @@ import parse from "html-react-parser";
 const ProjectDetails = ({ project, categories }) => {
     return (
         <Welcome>
-            <Head title={project.title} />
+            <Head>
+                <title>{project?.title}</title>
+                <meta
+                    name="description"
+                    content={project?.title + ". " + project?.excerpt}
+                />
+            </Head>
 
-            <div className="pt-6 px-2 2xl:flex 2xl:justify-center 2xl:mt-4">
-                <div className="grid grid-cols-12 h-[90svh]  gap-4 bg-mydark rounded-md p-6 2xl:w-4/5">
+            <div className="pt-6 px-2 2xl:flex 2xl:justify-center   2xl:mt-4">
+                <div className="grid grid-cols-12 h-[90svh]  gap-4 bg-mydark rounded-md p-6 2xl:w-4/5 md:items-center">
                     <div className="col-span-12 md:col-span-5 flex flex-col justify-start gap-4 items-center pt-12">
                         {project.image_url ? (
                             <img
@@ -35,7 +41,7 @@ const ProjectDetails = ({ project, categories }) => {
                             ))}
                         </div>
                     </div>
-                    <div className="col-span-12 md:col-span-7 overflow-auto">
+                    <div className="col-span-12 md:col-span-7 md:h-[80svh]   overflow-y-auto">
                         <div>
                             <h1 className="text-2xl italic text-mylight font-semibold">
                                 {project.title}

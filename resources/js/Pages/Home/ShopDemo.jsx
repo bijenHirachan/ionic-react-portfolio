@@ -1,3 +1,4 @@
+import Modal from "@/Components/Modal";
 import Product from "@/Components/ShopDemo/Product";
 import { Head, Link, router } from "@inertiajs/react";
 import gsap from "gsap";
@@ -6,6 +7,8 @@ import { AiOutlineClose, AiOutlineShoppingCart } from "react-icons/ai";
 
 const ShopDemo = ({ products }) => {
     const [cartItems, setCartItems] = useState([]);
+
+    const [showModal, setShowModal] = useState(false);
 
     const cartRef = useRef();
 
@@ -84,6 +87,13 @@ const ShopDemo = ({ products }) => {
 
     return (
         <div className="min-h-screen  bg-green-50 overflow-x-hidden relative">
+            <Head>
+                <title>Eshop demo</title>
+                <meta
+                    name="description"
+                    content={"Bijen's eshop demo project."}
+                />
+            </Head>
             <div
                 ref={cartRef}
                 className="bg-green-200 shadow-3xl translate-x-[1000px] z-40 p-4 w-[356px] h-full fixed top-0 right-0"
@@ -139,17 +149,30 @@ const ShopDemo = ({ products }) => {
                     <div className="flex justify-end text-gray-700">
                         Total $ {totalAmount().toFixed(2)}
                     </div>
-                    <div className="flex mt-24 hover:text-gray-700 hover:border-gray-700 cursor-pointer transition-all delay-75 justify-center border text-gray-500 py-1 rounded border-gray-500">
+                    <div
+                        onClick={() => setShowModal(true)}
+                        className="flex mt-24 hover:text-gray-700 hover:border-gray-700 cursor-pointer transition-all delay-75 justify-center border text-gray-500 py-1 rounded border-gray-500"
+                    >
                         Proceed To Checkout
                     </div>
                 </div>
             </div>
 
-            <Head title="Shop" />
+            <Modal
+                show={showModal}
+                closeable={true}
+                onClose={() => setShowModal(false)}
+            >
+                <p className="p-4 text-small font-abeeze">
+                    This is just a demo modal. Payment can be made using
+                    different payment gateways such as stripe and mollie.
+                </p>
+            </Modal>
             {/* {JSON.stringify(cartItems)} */}
-            <header className="px-16 py-8 bg-green-100 fixed w-full shadow-md z-20">
+            <header className="px-6 sm:px-16 py-8 bg-green-100 fixed w-full shadow-md z-20">
                 <nav className="flex items-center justify-between">
-                    <h1
+                    <img
+                        className="cursor-pointer h-8"
                         onClick={() => {
                             router.get(
                                 "/projects/shop-demo",
@@ -157,10 +180,9 @@ const ShopDemo = ({ products }) => {
                                 { preserveState: true }
                             );
                         }}
-                        className="cursor-pointer text-xl font-bold text-green-500 drop-shadow-md"
-                    >
-                        Shop
-                    </h1>
+                        src={"/images/eshop.png"}
+                        alt=""
+                    />
                     <form onSubmit={getSearchProducts}>
                         <input
                             onChange={(e) => setSearch(e.target.value)}
@@ -184,7 +206,7 @@ const ShopDemo = ({ products }) => {
 
             <section
                 onClick={hideCart}
-                className="p-16 grid grid-cols-12 gap-6 mt-24"
+                className="p-6 sm:p-16 grid grid-cols-12 gap-6 mt-24"
             >
                 {products?.map((product) => (
                     <Product

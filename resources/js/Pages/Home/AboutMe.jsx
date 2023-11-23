@@ -6,7 +6,15 @@ import { AiOutlineDownload } from "react-icons/ai";
 const AboutMe = () => {
     return (
         <Welcome>
-            <Head title="About Me" />
+            <Head>
+                <title>About Me</title>
+                <meta
+                    name="description"
+                    content={
+                        "About me page from Bijen Hirachan's portfolio website."
+                    }
+                />
+            </Head>
             <div className="p-4">
                 <div>
                     <h1 className="text-xl text-mylight font-semibold text-right my-4 px-4">

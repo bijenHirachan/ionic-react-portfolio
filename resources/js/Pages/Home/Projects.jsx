@@ -5,7 +5,13 @@ import { Head, Link } from "@inertiajs/react";
 const Projects = ({ projects }) => {
     return (
         <Welcome>
-            <Head title="Projects" />
+            <Head>
+                <title>Projects</title>
+                <meta
+                    name="description"
+                    content="Bijen Hirachan's demo projects."
+                />
+            </Head>
             <div className="p-4">
                 <div>
                     <h1 className="text-xl text-right my-4 text-mylight font-semibold px-4">

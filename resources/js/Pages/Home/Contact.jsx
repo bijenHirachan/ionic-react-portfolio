@@ -53,7 +53,15 @@ const Contact = ({ errors }) => {
 
     return (
         <Welcome>
-            <Head title="Contact" />
+            <Head>
+                <title>Contact Me</title>
+                <meta
+                    name="description"
+                    content={
+                        "Contact me page from Bijen Hirachan's portfolio website."
+                    }
+                />
+            </Head>
             <div className="p-4">
                 <div>
                     <h1 className="text-xl text-mylight font-semibold text-right my-4 px-4">

@@ -5,6 +5,7 @@ import gsap from "gsap";
 import { Canvas } from "@react-three/fiber";
 import { MeshDistortMaterial, OrbitControls, Sphere } from "@react-three/drei";
 import Modal from "@/Components/Modal";
+import { Head } from "@inertiajs/react";
 
 const Home = () => {
     const [quote, setQuote] = useState({});
@@ -66,6 +67,13 @@ const Home = () => {
 
     return (
         <Welcome>
+            <Head>
+                <title>Home</title>
+                <meta
+                    name="description"
+                    content="Portfolio website of Bijen Hirachan, a fullstack developer based in Leuven, Belgium."
+                />
+            </Head>
             <div className="h-full flex flex-col gap-6 justify-between items-center z-10">
                 <Modal
                     show={showModal}
