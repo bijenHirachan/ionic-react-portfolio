@@ -164,8 +164,8 @@ const ShopDemo = ({ products }) => {
                 onClose={() => setShowModal(false)}
             >
                 <p className="p-4 text-small font-abeeze">
-                    This is just a demo modal. Payment can be made using
-                    different payment gateways such as stripe and mollie.
+                    This is just a demo. Payment can be made using different
+                    payment gateways such as stripe and mollie.
                 </p>
             </Modal>
             {/* {JSON.stringify(cartItems)} */}
