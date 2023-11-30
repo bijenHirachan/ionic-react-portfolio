@@ -31,3 +31,5 @@ Route::delete('/recipes/{recipecategory}/categories', [RecipeController::class, 
 
 Route::post('/recipes/{recipe}/categories/add', [RecipeController::class, 'addCategory']);
 Route::delete('/recipes/{recipe}/categories/remove', [RecipeController::class, 'removeCategory']);
+
+Route::get('/recipes/{recipecategory}/categories', [RecipeController::class, 'recipeCategories']);

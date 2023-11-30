@@ -25,13 +25,20 @@ class RecipeController extends Controller
         $validated = $request->validate([
             'title' => 'required|max:255',
             'description' => 'required',
-            'image_url' => 'nullable'
+            'image' => 'nullable|image|mimes:jpeg,png,jpg|max:2048'
         ]);
+
+        if($validated['image']){
+            $image = $validated['image'];
+            $fileName = pathinfo($image->getClientOriginalName())['filename'];
+            $path = $image->storeAs('recipe_images', $fileName . time() .".". $request->file('image')->getClientOriginalExtension(), 'public');
+
+        }
 
         $recipe = Recipe::create([
             'title' => $validated['title'],
             'description' => $validated['description'],
-            'image_url' => $validated['image_url']
+            'image_url' => $path ?? NULL
         ]);
 
         return new RecipeResource($recipe);
@@ -47,11 +54,20 @@ class RecipeController extends Controller
         $validated = $request->validate([
             'title' => 'required|max:255',
             'description' => 'required',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg|max:2048'
         ]);
+
+        if($validated['image']){
+            $image = $validated['image'];
+            $fileName = pathinfo($image->getClientOriginalName())['filename'];
+            $path = $image->storeAs('recipe_images', $fileName . time() .".". $request->file('image')->getClientOriginalExtension(), 'public');
+
+        }
 
         $recipe->update([
             'title' => $validated['title'],
-            'description' => $validated['description']
+            'description' => $validated['description'],
+            'image_url' => $path ?? $recipe->image_url
         ]);
 
         return new RecipeResource($recipe);
@@ -129,8 +145,13 @@ class RecipeController extends Controller
         $recipe->recipeCategories()->detach($request->categories);
     }
 
-    public function allCategories()
+    public function allCategories(Request $request)
     {
-        return RecipecategoryResource::collection(Recipecategory::all());
+        return RecipecategoryResource::collection(Recipecategory::where('category', 'LIKE', '%'.$request->search.'%')->orderBy('category')->get());
+    }
+
+    public function recipeCategories(Recipecategory $recipecategory)
+    {
+        return RecipeResource::collection($recipecategory->recipes);
     }
 }
