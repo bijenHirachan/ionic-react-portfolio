@@ -50,7 +50,7 @@ class HomeController extends Controller
     public function projects()
     {
         return Inertia::render('Home/Projects', [
-            'projects' => Project::all()
+            'projects' => Project::latest()->get()
         ]);
     }
 

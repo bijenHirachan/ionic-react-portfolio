@@ -14,40 +14,47 @@ const ProjectDetails = ({ project, categories }) => {
                 />
             </Head>
 
-            <div className="pt-6 px-2 2xl:flex 2xl:justify-center   2xl:mt-4">
-                <div className="grid grid-cols-12 h-[90svh]  gap-4 bg-mydark rounded-md p-6 2xl:w-4/5 md:items-center">
-                    <div className="col-span-12 md:col-span-5 flex flex-col justify-start gap-4 items-center pt-12">
+            <div className="p-4">
+                <div>
+                    <h1 className="text-xl text-mylight font-semibold text-right my-4 px-4">
+                        {project?.title}
+                    </h1>
+                </div>
+                <div className="bg-mydark h-[80svh] rounded-lg overflow-x-hidden overflow-y-scroll w-full py-16">
+                    <div className="px-4 sm:px-8 xl:px-16 flex flex-col gap-4">
                         {project.image_url ? (
-                            <img
-                                src={`/storage/${project.image_url}`}
-                                alt={project.title}
-                                className="h-64 w-auto object-contain object-center mb-6 md:mb-0"
-                            />
+                            <div className="my-4">
+                                <img
+                                    src={`/storage/${project.image_url}`}
+                                    alt={project.title}
+                                    className="h-24 w-auto object-contain object-center"
+                                />
+                            </div>
                         ) : (
-                            <img
-                                src={`/images/placeholder.png`}
-                                alt={project.title}
-                                className="h-64 w-auto object-contain object-center mb-6 md:mb-0"
-                            />
+                            <div className="my-4">
+                                <img
+                                    src={`/images/placeholder.png`}
+                                    alt={project.title}
+                                    className="h-24 w-auto object-contain object-center"
+                                />
+                            </div>
                         )}
-                        <div className="flex flex-wrap gap-2">
-                            {categories.map((cat) => (
-                                <span
-                                    className="border border-mylight text-xs uppercase px-2 py-1 rounded text-mylight"
-                                    key={cat.id}
-                                >
-                                    {cat.title}
-                                </span>
-                            ))}
+
+                        <div className="my-4">
+                            {categories.length > 0 && (
+                                <div className="flex gap-2 flex-wrap">
+                                    {categories.map((cat) => (
+                                        <span
+                                            className="border border-mylight text-xs uppercase px-2 py-1 rounded text-mylight"
+                                            key={cat.id}
+                                        >
+                                            {cat.title}
+                                        </span>
+                                    ))}
+                                </div>
+                            )}
                         </div>
-                    </div>
-                    <div className="col-span-12 md:col-span-7 md:h-[80svh]   overflow-y-auto">
-                        <div>
-                            <h1 className="text-2xl italic text-mylight font-semibold">
-                                {project.title}
-                            </h1>
-                        </div>
-                        <div className="mt-2 text-mylight">
+                        <div className="text-mylight text-sm">
                             {parse(project.description)}
                         </div>
                     </div>

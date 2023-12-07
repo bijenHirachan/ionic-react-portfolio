@@ -23,18 +23,18 @@ const Projects = ({ projects }) => {
                     {projects.map((project) => (
                         <div
                             key={project.id}
-                            className="col-span-12 p-4 sm:col-span-6 lg:col-span-4 bg-mydark text-mylight h-40 rounded shadow-md grid grid-cols-12 gap-4 relative"
+                            className="col-span-12 p-4 sm:col-span-6 lg:col-span-4 xl:col-span-3 bg-mydark text-mylight h-40 rounded shadow-md grid grid-cols-12 gap-4 relative"
                         >
                             <div className="col-span-4 flex justify-center items-center">
                                 {project.image_url ? (
                                     <img
-                                        className="h-14 object-contain rounded"
+                                        className="h-14 object-contain object-center rounded"
                                         src={`/storage/${project.image_url}`}
                                         alt=""
                                     />
                                 ) : (
                                     <img
-                                        className="h-14 object-contain rounded"
+                                        className="h-14 object-contain object-center rounded"
                                         src={`/images/placeholder.png`}
                                         alt=""
                                     />

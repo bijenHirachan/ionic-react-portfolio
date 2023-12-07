@@ -13,7 +13,6 @@ const Home = () => {
     const [showModal, setShowModal] = useState(false);
 
     const nameRef = useRef();
-    const quoteRef = useRef();
     const jobRef = useRef();
 
     const fetchQuote = async () => {
@@ -113,7 +112,7 @@ const Home = () => {
                     <div className="absolute flex flex-col gap-2 items-center">
                         <h1
                             ref={nameRef}
-                            className="text-transparent bg-clip-text bg-gradient-to-r from-myblue to-mypink text-[48px] sm:text-[64px] font-extrabold drop-shadow-xl"
+                            className="text-transparent bg-clip-text bg-gradient-to-r from-myblue to-mypink text-[44px] sm:text-[64px] font-extrabold drop-shadow-xl"
                         >
                             Bijen Hirachan
                         </h1>

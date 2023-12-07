@@ -35,7 +35,7 @@ export default function Authenticated({ user, header, children }) {
                                         route().current("blogs.create")
                                     }
                                 >
-                                    Blogs
+                                    Blog
                                 </NavLink>
                                 <NavLink
                                     href={route("projects.index")}
@@ -176,7 +176,7 @@ export default function Authenticated({ user, header, children }) {
                                 Profile
                             </ResponsiveNavLink>
                             <ResponsiveNavLink href={route("blogs.index")}>
-                                Blogs
+                                Blog
                             </ResponsiveNavLink>
                             <ResponsiveNavLink href={route("projects.index")}>
                                 Projects
@@ -184,6 +184,7 @@ export default function Authenticated({ user, header, children }) {
                             <ResponsiveNavLink href={route("categories.index")}>
                                 Categories
                             </ResponsiveNavLink>
+
                             <ResponsiveNavLink
                                 method="post"
                                 href={route("logout")}

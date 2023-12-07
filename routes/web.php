@@ -45,6 +45,7 @@ Route::middleware('auth')->prefix('admin')->group(function () {
     Route::resource('/projects', ProjectController::class)->except(['edit']);
     Route::get('/projects/{project:slug}/edit', [ProjectController::class, 'edit']);
     Route::resource('/categories', CategoryController::class);
+
 });
 
 

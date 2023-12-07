@@ -6,7 +6,7 @@ const Blogs = ({ blogs }) => {
     return (
         <Welcome>
             <Head>
-                <title>Blogs</title>
+                <title>Blog</title>
                 <meta
                     name="description"
                     content="Bijen Hirachan's blog content."
@@ -15,7 +15,7 @@ const Blogs = ({ blogs }) => {
             <div className="p-4">
                 <div>
                     <h1 className="text-xl text-mylight font-semibold text-right my-4 px-4">
-                        Blogs
+                        Blog
                     </h1>
                 </div>
 
@@ -23,18 +23,18 @@ const Blogs = ({ blogs }) => {
                     {blogs.map((blog) => (
                         <div
                             key={blog.id}
-                            className="col-span-12 p-4 sm:col-span-6 lg:col-span-4 bg-mydark text-mylight h-40 rounded shadow-md grid grid-cols-12 gap-4 relative"
+                            className="col-span-12 p-4 sm:col-span-6 lg:col-span-4 xl:col-span-3 bg-mydark text-mylight h-40 rounded shadow-md grid grid-cols-12 gap-4 relative"
                         >
                             <div className="col-span-4 flex justify-center items-center">
                                 {blog.image_url ? (
                                     <img
-                                        className="h-14 object-contain rounded"
+                                        className="h-14 object-contain object-center rounded"
                                         src={`/storage/${blog.image_url}`}
                                         alt=""
                                     />
                                 ) : (
                                     <img
-                                        className="h-14 object-contain rounded"
+                                        className="h-14 object-contain object-center rounded"
                                         src={`/images/placeholder.png`}
                                         alt=""
                                     />

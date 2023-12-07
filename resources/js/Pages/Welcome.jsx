@@ -17,7 +17,7 @@ import {
 
 import { Toaster } from "react-hot-toast";
 
-export default function Welcome({ children }) {
+const Welcome = ({ children }) => {
     const navRef = useRef();
 
     const { component } = usePage();
@@ -165,7 +165,7 @@ export default function Welcome({ children }) {
                                         : "text-mylight cursor-pointer"
                                 }`}
                             >
-                                Blogs
+                                Blog
                             </div>
                         </Link>
                         <Link href="/contact">
@@ -204,4 +204,6 @@ export default function Welcome({ children }) {
             </div>
         </>
     );
-}
+};
+
+export default Welcome;
