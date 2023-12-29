@@ -65,7 +65,8 @@ const Welcome = ({ children }) => {
                         <Link href="/projects">
                             <AiOutlineProject
                                 className={`text-2xl hover:text-mygreen hover:scale-125 cursor-pointer transition-all delay-75 ${
-                                    component === "Home/Projects"
+                                    component === "Home/Projects" ||
+                                    component === "Home/ProjectDetails"
                                         ? "text-mygreen scale-125"
                                         : "text-mylight "
                                 }`}
@@ -74,7 +75,8 @@ const Welcome = ({ children }) => {
                         <Link href="/blogs">
                             <AiOutlineTable
                                 className={`text-2xl hover:text-mygreen hover:scale-125 cursor-pointer transition-all delay-75 ${
-                                    component === "Home/Blogs"
+                                    component === "Home/Blogs" ||
+                                    component === "Home/BlogDetails"
                                         ? "text-mygreen scale-125"
                                         : "text-mylight "
                                 }`}
@@ -149,7 +151,8 @@ const Welcome = ({ children }) => {
                         <Link href="/projects">
                             <div
                                 className={`text-md hover:text-mygreen font-bold transition-all delay-75 ${
-                                    component === "Home/Projects"
+                                    component === "Home/Projects" ||
+                                    component === "Home/ProjectDetails"
                                         ? "text-mygreen scale-110"
                                         : "text-mylight cursor-pointer"
                                 }`}
@@ -160,7 +163,8 @@ const Welcome = ({ children }) => {
                         <Link href="/blogs">
                             <div
                                 className={`text-md hover:text-mygreen font-bold transition-all delay-75 ${
-                                    component === "Home/Blogs"
+                                    component === "Home/Blogs" ||
+                                    component === "Home/BlogDetails"
                                         ? "text-mygreen scale-110"
                                         : "text-mylight cursor-pointer"
                                 }`}
