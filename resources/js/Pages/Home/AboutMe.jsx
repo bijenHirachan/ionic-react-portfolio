@@ -279,10 +279,11 @@ const AboutMe = () => {
 
                     <div className="bg-white mx-8 p-4 rounded text-mydark text-sm flex flex-col gap-2 items-center justify-center">
                         <p>
-                            Apart from developing fullstack apps, I love
-                            listening to music and travelling. The technologies
-                            that I use most in my works are Laravel, PHP,
-                            ReactJs, javascript, TailwindCSS, MySQL, MongoDB ...
+                            Apart from developing fullstack apps, I love playing
+                            snooker, listening to music and travelling. The
+                            technologies that I use most in my works are
+                            Laravel, PHP, ReactJs, javascript, TailwindCSS,
+                            MySQL, MongoDB ...
                         </p>
                     </div>
                 </div>
