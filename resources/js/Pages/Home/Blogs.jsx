@@ -1,6 +1,7 @@
 import React from "react";
 import Welcome from "../Welcome";
-import { Head, Link } from "@inertiajs/react";
+import { Head } from "@inertiajs/react";
+import Blog from "@/Components/Home/Blog";
 
 const Blogs = ({ blogs }) => {
     return (
@@ -21,37 +22,7 @@ const Blogs = ({ blogs }) => {
 
                 <div className="grid grid-cols-12 gap-4 w-full px-4">
                     {blogs.map((blog) => (
-                        <div
-                            key={blog.id}
-                            className="col-span-12 p-4 sm:col-span-6 lg:col-span-4 xl:col-span-3 bg-mydark text-mylight h-40 rounded shadow-md grid grid-cols-12 gap-4 relative"
-                        >
-                            <div className="col-span-4 flex justify-center items-center">
-                                {blog.image_url ? (
-                                    <img
-                                        className="h-14 object-contain object-center rounded"
-                                        src={`/storage/${blog.image_url}`}
-                                        alt=""
-                                    />
-                                ) : (
-                                    <img
-                                        className="h-14 object-contain object-center rounded"
-                                        src={`/images/placeholder.png`}
-                                        alt=""
-                                    />
-                                )}
-                            </div>
-                            <div className="col-span-8 overflow-auto flex flex-col justify-center gap-2">
-                                <Link href={`/blogs/${blog.slug}`}>
-                                    <h1 className="text-md font-semibold leading-5">
-                                        {blog.title}
-                                    </h1>
-                                </Link>
-
-                                <div className="text-xs leading-5">
-                                    {blog.excerpt}
-                                </div>
-                            </div>
-                        </div>
+                        <Blog key={blog.id} blog={blog} />
                     ))}
                 </div>
             </div>
